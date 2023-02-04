@@ -20,16 +20,22 @@ ThisBuild / developers := List(
   ),
 )
 
-// need
-// PGP_PASSPHRASE
-// PGP_SECRET
-// SONATYPE_USERNAME
-// SONATYPE_PASSWORD
-
-
-
 lazy val root = project
   .in(file("."))
   .settings(
     name := "macro-helpers",
+    Compile / doc / scalacOptions ++= Seq(
+      "-project",
+      "Scala Works Macro Helpers",
+      "-Yapi-subdirectory",
+      "-Ygenerate-inkuire",
+      "-project-version",
+      version.value,
+      "-source-links:github://scala-works/scala-cmd",
+      "-revision",
+      "main",
+      "-snippet-compiler:compile",
+      "-doc-root-content",
+      "README.md"
+    )
   )
