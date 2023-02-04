@@ -19,5 +19,9 @@ jobs:
           distribution: 'temurin'
           java-version: '8'
           cache: 'sbt'
+          server-username: SONATYPE_USERNAME
+          server-password: SONATYPE_PASSWORD
+          gpg-private-key: PGP_SECRET
+          gpg-passphrase: PGP_PASSPHRASE
       - name: Publish
         run: sbt publishSigned
